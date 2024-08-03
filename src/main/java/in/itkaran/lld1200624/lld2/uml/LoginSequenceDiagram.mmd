@@ -1,0 +1,8 @@
+sequenceDiagram
+    Client ->> Server: signup(name, username, password)
+    Server ->> Client: verification email
+    Note over Client, Server: User verifies email
+    Client ->> Server: login(username, password)
+    Server ->> Client: JWT token
+    Client ->> Server: getProfile(JWT token)
+    Server ->> Client: User profile
