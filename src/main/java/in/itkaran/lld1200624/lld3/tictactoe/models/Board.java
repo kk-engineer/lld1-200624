@@ -34,6 +34,7 @@ public class Board {
                     System.out.print("| " + cell.getPlayer().getSymbol().getSymbol() + " |");
                 }
             }
+            System.out.println();
         }
     }
 }

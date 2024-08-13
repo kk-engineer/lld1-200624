@@ -30,11 +30,6 @@ public class Game {
         this.nextPlayerIndex = random.nextInt(players.size());
     }
 
-    public void makeMove() {
-        Player currentPlayer = players.get(nextPlayerIndex);
-        Cell moveCell = currentPlayer.makeMove(board);
-        // TODO !
-    }
     // Builder
     public static Builder getBuilder() {
         return new Builder();
