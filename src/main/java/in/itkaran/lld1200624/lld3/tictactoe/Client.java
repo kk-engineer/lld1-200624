@@ -1,10 +1,7 @@
 package in.itkaran.lld1200624.lld3.tictactoe;
 
 import in.itkaran.lld1200624.lld3.tictactoe.controllers.GameController;
-import in.itkaran.lld1200624.lld3.tictactoe.models.GameState;
-import in.itkaran.lld1200624.lld3.tictactoe.models.Player;
-import in.itkaran.lld1200624.lld3.tictactoe.models.PlayerType;
-import in.itkaran.lld1200624.lld3.tictactoe.models.Symbol;
+import in.itkaran.lld1200624.lld3.tictactoe.models.*;
 import in.itkaran.lld1200624.lld3.tictactoe.services.strategies.winningstrategy.ColumnWinningStrategy;
 import in.itkaran.lld1200624.lld3.tictactoe.services.strategies.winningstrategy.DiagonalWinningStrategy;
 import in.itkaran.lld1200624.lld3.tictactoe.services.strategies.winningstrategy.RowWinningStrategy;
@@ -24,8 +21,11 @@ public class Client {
         System.out.println("Let's play to Tic Tac Toe!");
         List<Player> players = new ArrayList<>();
 
-        players.add(new Player("Raghu", new Symbol('R'), PlayerType.HUMAN));
-        players.add(new Player("Gautam", new Symbol('G'), PlayerType.HUMAN));
+        players.add(new Player("Nishant", new Symbol('N'), PlayerType.HUMAN));
+        //players.add(new Player("Gautam", new Symbol('G'), PlayerType.HUMAN));
+        // BOT
+        players.add(new Bot("Bot1", new Symbol('B'), BotDifficultyLevel.EASY));
+        players.add(new Bot("Bot2", new Symbol('C'), BotDifficultyLevel.EASY));
 
         List<WinningStrategy> winningStrategies = List.of(
                 new RowWinningStrategy(),
