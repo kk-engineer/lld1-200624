@@ -5,8 +5,21 @@ import java.util.List;
 
 public class Client {
     public static void main(String[] args) {
-        //demoConstructor();
-        demoPassByValue();
+        demoConstructor();
+//        demoPassByValue();
+//        try {
+//            demoFinalize();
+//        } catch (Throwable throwable) {
+//            System.out.println("Exception: " + throwable.getMessage());
+//        }
+    }
+
+    private static void demoFinalize() throws Throwable {
+        Student s = new Student();
+        s.finalize();
+        // set the object null for garbage collection
+        s = null;
+        System.gc();    // will call finalize method of the class implicitly.
     }
 
     private static void demoPassByValue() {
@@ -29,9 +42,8 @@ public class Client {
 
     private static void fun2(Student s) {
         System.out.println("fun2");
-        s.setName("Souvik");
+        s.setName("KK");
     }
-
 
 
     private static void demoConstructor() {
@@ -39,15 +51,16 @@ public class Client {
         marks.add(57);
         marks.add(83);
         Student student1 = new Student("Akshay", 25, 77, marks);
-        //Student student2 = new Student();
         // Create a copy of student1
         Student student3 = new Student(student1);
-        //Student student4 = new Student(student2);
 
-        marks.add(90);
-        student3.setName("Javed");
-        System.out.println("Debug");
+        System.out.println("Debug 1");
+        // Change the values of student3
+        student3.getGrades().add(90);
+        fun2(student3);
+        student3.setName("Karan");
+        student3.setAge(30);
+        System.out.println("Debug 2");
     }
 
-    // Break till 8:40 am
 }

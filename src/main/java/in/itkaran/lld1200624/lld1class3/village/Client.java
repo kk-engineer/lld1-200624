@@ -2,7 +2,6 @@ package in.itkaran.lld1200624.lld1class3.village;
 
 public class Client {
     public static void main(String[] args) {
-
         demoAccess();
     }
 

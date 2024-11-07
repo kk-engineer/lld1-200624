@@ -1,6 +1,10 @@
 package in.itkaran.lld1200624.lld1class4.inheritance;
 
-public class Lion extends Cat{
+import lombok.Getter;
+import lombok.Setter;
+
+
+public class Lion extends Cat {
 
     Lion(String name) {
         super(name);
@@ -11,11 +15,11 @@ public class Lion extends Cat{
         System.out.println("I am a Lion");
     }
 
-    void fun() {
+    public void fun() {
         System.out.println("Lion fun");
     }
 
-    void fun(int x) {
+    public void fun(int x) {
         System.out.println("Lion fun with int");
     }
 }

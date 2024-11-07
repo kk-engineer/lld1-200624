@@ -14,4 +14,9 @@ public class Eagle implements Bird{
     public void fly() {
         System.out.println("Eagle flies");
     }
+
+    // Can we have extra method in derived class? Yes
+    public void soar() {
+        System.out.println("Eagle soars");
+    }
 }

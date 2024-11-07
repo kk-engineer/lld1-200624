@@ -9,10 +9,15 @@ public class Client {
     }
 
     private static void demoInterface() {
+        Animal.doSomething();
+        System.out.println(Animal.limbs);
         Lion lion = new Lion();
         lion.move();
         lion.eat();
         lion.fly();
+
+        Eagle eagle = new Eagle();
+        eagle.soar();
 
         List<Animal> animals = new ArrayList<>();
         animals.add(lion);
@@ -22,6 +27,8 @@ public class Client {
             animal.fly();
         }
 
+        lion.see();
+        eagle.see();
         // break till 8:10 am
     }
 }

@@ -33,4 +33,9 @@ public class Student {
         this.psp = s.psp;
         this.grades = s.grades;
     }
+
+    public void finalize() throws Throwable {
+        System.out.println("finalize");
+        System.out.println("Free more resources such as DB connection etc");
+    }
 }
