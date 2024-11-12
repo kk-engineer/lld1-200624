@@ -11,6 +11,7 @@ public class Client {
     private static void demoInterface() {
         Animal.doSomething();
         System.out.println(Animal.limbs);
+        System.out.println(Animal.eyes);
         Lion lion = new Lion();
         lion.move();
         lion.eat();

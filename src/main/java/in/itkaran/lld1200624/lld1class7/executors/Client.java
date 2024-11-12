@@ -10,5 +10,6 @@ public class Client {
             NumberPrinter numberPrinter = new NumberPrinter(i);
             executorService.execute(numberPrinter);
         }
+        executorService.shutdown();
     }
 }

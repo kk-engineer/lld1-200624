@@ -1,7 +1,7 @@
 package in.itkaran.lld1200624.lld1class5.interfaces;
 
 public interface Animal {
-    static int limbs = 4;
+    int limbs = 4;
     int eyes = 2;
 
     void move();
