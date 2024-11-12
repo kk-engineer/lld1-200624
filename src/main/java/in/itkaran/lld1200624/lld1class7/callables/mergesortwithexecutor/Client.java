@@ -16,5 +16,6 @@ public class Client {
         // get on Future is blocking
         // more business logic here ...
         System.out.println(sortedListFuture.get());
+        executorService.shutdown();
     }
 }
