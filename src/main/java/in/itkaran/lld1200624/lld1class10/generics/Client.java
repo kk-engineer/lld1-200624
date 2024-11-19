@@ -9,8 +9,8 @@ public class Client {
     public static void main(String[] args) {
 
         //demoPair();
-        //demoGenericPair();
-        demoGenericMethod();
+        demoGenericPair();
+        //demoGenericMethod();
     }
 
     private static void demoGenericMethod() {
@@ -25,7 +25,7 @@ public class Client {
         GenericPair.fun(5.0);
         GenericPair.fun(true);
 
-        GenericPair.<Boolean>fun(false);
+        GenericPair.fun(false);
         GenericPair.<String>fun("USA");
 
         // Map<String, Integer> map = new HashMap<>();
@@ -59,6 +59,15 @@ public class Client {
         System.out.println(p2.getFirst());
         System.out.println(p2.getSecond());
 
-        List<String> strings = new ArrayList<>();
+
+        // Type Erasure
+        System.out.println(p1.getClass().getName());
+        System.out.println(p2.getClass().getName());
+
+        // Java collections
+        Map<String, Integer> map = new HashMap<>();
+        HashMap hm = new HashMap();
+        System.out.println(map.getClass().getName());
+        System.out.println(hm.getClass().getName());
     }
 }
