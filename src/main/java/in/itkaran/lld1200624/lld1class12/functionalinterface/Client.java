@@ -31,6 +31,10 @@ public class Client {
             }
         };
 
+        // Lambda implementation
+        BiConsumer<String, Integer> biConsumer2 = (s, i) -> System.out.println(s + " " + i);
+
         biConsumer.accept("Scaler", 5);
+        biConsumer2.accept("Karan", 7);
     }
 }

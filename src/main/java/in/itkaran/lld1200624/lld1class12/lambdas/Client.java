@@ -1,5 +1,7 @@
 package in.itkaran.lld1200624.lld1class12.lambdas;
 
+import org.springframework.beans.ConversionNotSupportedException;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -10,9 +12,9 @@ import java.util.function.Predicate;
 public class Client {
     public static void main(String[] args) {
 
-        //demoLambda();
-        // demoRunnableExample();
-        demoComparator();
+        demoLambda();
+        //demoRunnableExample();
+        //demoComparator();
     }
 
     private static void demoComparator() {
@@ -25,8 +27,12 @@ public class Client {
 
         Comparator<Student> marksComparator = (st1, st2) -> st1.marks - st2.marks;
 
+        // Concise inbuilt comparator
+        Comparator<Student> marksComparator2 = Comparator.comparingInt(st -> st.marks);
+
         students.sort(marksComparator);
         System.out.println(students);
+
         Comparator<Student> rollNumComparator = (st1, st2) -> st1.rollNum - st2.rollNum;
         students.sort(rollNumComparator);
         System.out.println(students);
@@ -53,11 +59,14 @@ public class Client {
         };
         c1.accept("Scaler");
 
-        BiConsumer<String, Integer> c2 = (str, n) -> {
+        Consumer<String> c2 = System.out::println;
+        c2.accept("Karan");
+
+        BiConsumer<String, Integer> c3 = (str, n) -> {
             System.out.println(str + " " + n);
         };
 
-        c2.accept("Scaler", 2);
+        c3.accept("Scaler", 2);
 
         Predicate<String> p1 = (str) -> {
             if (str.length() > 5) return true;
@@ -68,13 +77,11 @@ public class Client {
         System.out.println(p1.test("Ajay"));
 
         Predicate<String> p2 = (str) -> { return str.length() > 5; };
-
         System.out.println(p2.test("Scaler"));
         System.out.println(p2.test("Ajay"));
 
-
-        Predicate<String> p3 = (str) ->  str.length() > 5;
-
+        // Concise lambda implementation
+        Predicate<String> p3 = (str) -> str.length() > 5;
         System.out.println(p3.test("Scaler"));
         System.out.println(p3.test("Ajay"));
     }

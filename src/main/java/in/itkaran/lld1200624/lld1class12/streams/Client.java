@@ -5,13 +5,60 @@ import in.itkaran.lld1200624.lld1class12.lambdas.Student;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Client {
     public static void main(String[] args) {
         
-        demoCreateStream();
-        demoStream();
+        //demoCreateStream();
+        //demoStream();
+        demoReduce();
+    }
+
+    private static void demoReduce() {
+        // Example
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Identity is 0, Accumulator is Integer::sum
+        int sum = numbers.stream()
+                .reduce(0, Integer::sum); // Equivalent to (a, b) -> a + b
+
+        System.out.println("Sum: " + sum); // Output: Sum: 15
+
+        // Example
+        List<Integer> numbers2 = Arrays.asList(1, 2, 3, 4, 5);
+
+        int product = numbers2.stream()
+                .reduce(1, (a, b) -> a * b);
+
+        System.out.println("Product: " + product); // Output: Product: 120
+
+
+        // Example
+        List<String> words = Arrays.asList("apple", "bananas", "cherry", "date");
+
+        Optional<String> longest = words.stream()
+                .reduce((a, b) -> a.length() > b.length() ? a : b);
+
+        longest.ifPresent(System.out::println); // Output: bananas
+
+        // Example
+        List<String> words2 = Arrays.asList("Java", "is", "awesome");
+
+        String sentence = words2.stream()
+                .reduce("", (a, b) -> a + " " + b);
+
+        System.out.println(sentence.trim()); // Output: Java is awesome
+
+
+        // Parallel Reduce
+        Stream<String> stream = Stream.of("a", "b", "c", "d").parallel();
+
+        // Identity is "", Accumulator concatenates, Combiner merges results
+        String result = stream.reduce("", (s1, s2) -> s1 + s2, (s1, s2) -> s1 + s2);
+
+        System.out.println(result); // Output: abcd
     }
 
     private static void demoCreateStream() {
